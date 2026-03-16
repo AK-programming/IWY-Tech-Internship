@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Project Manager | Full Stack App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <h1>🔬 Research Project Manager</h1>
+        <p class="subtitle">Full Stack Application - IWY Tech Week 4 Final Project</p>
+        <nav>
+          <a href="#dashboard">Dashboard</a>
+          <a href="#add-project">Add Project</a>
+          <a href="#projects-list">All Projects</a>
+          <button id="darkModeToggle" class="dark-mode-btn">🌙 Dark</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- DASHBOARD SECTION -->
+  <section id="dashboard" class="dashboard-section">
+    <div class="container">
+      <h2>📊 Dashboard Overview</h2>
+      
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">📚</div>
+          <div class="stat-info">
+            <h3 id="totalProjects">0</h3>
+            <p>Total Projects</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">🔄</div>
+          <div class="stat-info">
+            <h3 id="ongoingProjects">0</h3>
+            <p>In Progress</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">✅</div>
+          <div class="stat-info">
+            <h3 id="completedProjects">0</h3>
+            <p>Completed</p>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">⏸️</div>
+          <div class="stat-info">
+            <h3 id="pausedProjects">0</h3>
+            <p>On Hold</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD PROJECT FORM SECTION -->
+  <section id="add-project" class="add-project-section">
+    <div class="container">
+      <h2>➕ Add New Research Project</h2>
+      
+      <form id="projectForm" class="project-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="projectTitle">Project Title *</label>
+            <input type="text" id="projectTitle" name="projectTitle" placeholder="e.g., Roman Urdu Healthcare Chatbot" required>
+            <span class="error-msg" id="titleError"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="projectCategory">Category *</label>
+            <select id="projectCategory" name="projectCategory" required>
+              <option value="">-- Select Category --</option>
+              <option value="AI/ML">AI/ML</option>
+              <option value="IoT">IoT & Embedded Systems</option>
+              <option value="Web Development">Web Development</option>
+              <option value="Mobile App">Mobile App</option>
+              <option value="Research">Research Paper</option>
+              <option value="Other">Other</option>
+            </select>
+            <span class="error-msg" id="categoryError"></span>
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="projectStatus">Status *</label>
+            <select id="projectStatus" name="projectStatus" required>
+              <option value="">-- Select Status --</option>
+              <option value="Planning">Planning</option>
+              <option value="In Progress">In Progress</option>
+              <option value="Testing">Testing</option>
+              <option value="Completed">Completed</option>
+              <option value="On Hold">On Hold</option>
+            </select>
+            <span class="error-msg" id="statusError"></span>
+          </div>
+          
+          <div class="form-group">
+            <label for="projectDate">Start Date *</label>
+            <input type="date" id="projectDate" name="projectDate" required>
+            <span class="error-msg" id="dateError"></span>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="projectDescription">Description *</label>
+          <textarea id="projectDescription" name="projectDescription" rows="4" placeholder="Describe your project..." required></textarea>
+          <span class="error-msg" id="descriptionError"></span>
+        </div>
+        
+        <div class="form-group">
+          <label for="projectTechnologies">Technologies Used</label>
+          <input type="text" id="projectTechnologies" name="projectTechnologies" placeholder="e.g., BERT, RoBERTa, Transformer Models">
+        </div>
+        
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">
+            <span>💾 Save Project</span>
+          </button>
+          <button type="button" class="btn btn-secondary" onclick="resetForm()">
+            <span>🔄 Reset Form</span>
+          </button>
+        </div>
+      </form>
+      
+      <div id="successMessage" class="success-alert" style="display: none;">
+        <span class="alert-icon">✅</span>
+        <span class="alert-text">Project added successfully!</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS LIST SECTION -->
+  <section id="projects-list" class="projects-list-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>📋 All Research Projects</h2>
+        
+        <div class="filters">
+          <button class="filter-btn active" onclick="filterByStatus('all')">All</button>
+          <button class="filter-btn" onclick="filterByStatus('Planning')">Planning</button>
+          <button class="filter-btn" onclick="filterByStatus('In Progress')">In Progress</button>
+          <button class="filter-btn" onclick="filterByStatus('Completed')">Completed</button>
+          <button class="filter-btn" onclick="filterByStatus('On Hold')">On Hold</button>
+        </div>
+      </div>
+      
+      <div id="projectsContainer" class="projects-grid">
+        <!-- Projects will be dynamically added here by JavaScript -->
+        <div class="empty-state">
+          <div class="empty-icon">📭</div>
+          <h3>No Projects Yet</h3>
+          <p>Start by adding your first research project above!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-left">
+          <h3>Research Project Manager</h3>
+          <p>Full Stack Application built with HTML, CSS, JavaScript & Node.js</p>
+          <p>Created by: <strong>Muhammad Afnan Khan</strong></p>
+        </div>
+        
+        <div class="footer-right">
+          <h4>Tech Stack</h4>
+          <div class="tech-badges">
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Express</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 Muhammad Afnan Khan | IWY Tech Full Stack Internship - Week 4 Final Project 🚀</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- EDIT MODAL -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>✏️ Edit Project</h3>
+        <button class="modal-close" onclick="closeEditModal()">&times;</button>
+      </div>
+      
+      <form id="editForm">
+        <input type="hidden" id="editProjectId">
+        
+        <div class="form-group">
+          <label for="editTitle">Project Title</label>
+          <input type="text" id="editTitle" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="editCategory">Category</label>
+          <select id="editCategory" required>
+            <option value="AI/ML">AI/ML</option>
+            <option value="IoT">IoT & Embedded Systems</option>
+            <option value="Web Development">Web Development</option>
+            <option value="Mobile App">Mobile App</option>
+            <option value="Research">Research Paper</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="editStatus">Status</label>
+          <select id="editStatus" required>
+            <option value="Planning">Planning</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Testing">Testing</option>
+            <option value="Completed">Completed</option>
+            <option value="On Hold">On Hold</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="editDescription">Description</label>
+          <textarea id="editDescription" rows="4" required></textarea>
+        </div>
+        
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+          <button type="button" class="btn btn-secondary" onclick="closeEditModal()">❌ Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Link to JavaScript files -->
+  <script src="app.js"></script>
+
+</body>
+</html>

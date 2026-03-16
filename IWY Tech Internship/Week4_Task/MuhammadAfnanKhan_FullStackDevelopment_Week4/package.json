@@ -1,0 +1,27 @@
+{
+  "name": "research-project-manager",
+  "version": "1.0.0",
+  "description": "Full Stack Research Project Manager - IWY Tech Week 4 Final Project",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [
+    "fullstack",
+    "nodejs",
+    "express",
+    "crud",
+    "research-manager"
+  ],
+  "author": "Muhammad Afnan Khan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

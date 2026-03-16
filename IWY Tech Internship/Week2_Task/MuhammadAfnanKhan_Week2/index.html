@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechHub Solutions | Your Digital Partner</title>
+  
+  <!-- EXTERNAL CSS - Day 1 (Best practice!) -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- INTERNAL CSS - Day 1 (For page-specific styles) -->
+  <style>
+    /* This is internal CSS - defined in the <head> section */
+    .highlight-box {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      margin: 40px 0;
+      box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════════
+       HEADER & NAVIGATION - Day 4 (Flexbox Layout)
+  ═══════════════════════════════════════════════ -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <h1>TechHub <span class="accent">Solutions</span></h1>
+          <p class="tagline">Innovation • Design • Development</p>
+        </div>
+        
+        <nav class="main-nav">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#team" class="nav-link">Team</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════
+       HERO SECTION - Day 2 (Colors & Fonts)
+  ═══════════════════════════════════════════════ -->
+  <section id="home" class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h2 class="hero-title">Build Your Digital Future</h2>
+        <p class="hero-subtitle">We create stunning websites and powerful web applications that help your business grow.</p>
+        <div class="hero-buttons">
+          <a href="#services" class="btn btn-primary">Our Services</a>
+          <a href="#contact" class="btn btn-secondary">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       ABOUT SECTION - Day 3 (Box Model: margin, padding, border)
+  ═══════════════════════════════════════════════ -->
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2 class="section-title">About TechHub Solutions</h2>
+      <p class="section-subtitle">Your trusted partner in digital transformation</p>
+      
+      <div class="about-content">
+        <div class="about-text">
+          <p>Founded in 2024, <strong>TechHub Solutions</strong> is a leading web development company specializing in creating innovative digital solutions. Our team of expert developers, designers, and strategists work together to deliver exceptional results.</p>
+          
+          <p>We believe in the power of technology to transform businesses. Whether you're a startup or an established enterprise, we provide customized solutions that drive growth and success.</p>
+          
+          <!-- INLINE CSS Example - Day 1 (Not recommended for production) -->
+          <p style="color: #667eea; font-weight: bold; margin-top: 20px;">
+            💡 Pro Tip: This paragraph uses inline CSS - notice the style attribute!
+          </p>
+        </div>
+        
+        <div class="about-stats">
+          <div class="stat-card">
+            <h3>150+</h3>
+            <p>Projects Completed</p>
+          </div>
+          <div class="stat-card">
+            <h3>50+</h3>
+            <p>Happy Clients</p>
+          </div>
+          <div class="stat-card">
+            <h3>5+</h3>
+            <p>Years Experience</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       SERVICES SECTION - Day 4 (Flexbox Layout)
+  ═══════════════════════════════════════════════ -->
+  <section id="services" class="services-section">
+    <div class="container">
+      <h2 class="section-title">Our Services</h2>
+      <p class="section-subtitle">Comprehensive solutions for your digital needs</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🌐</div>
+          <h3>Web Development</h3>
+          <p>Custom websites built with modern technologies like HTML, CSS, JavaScript, and React.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>Mobile Apps</h3>
+          <p>Responsive mobile applications that work seamlessly across all devices.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3>UI/UX Design</h3>
+          <p>Beautiful, user-friendly interfaces that enhance user experience.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🚀</div>
+          <h3>SEO Optimization</h3>
+          <p>Improve your website's visibility and ranking on search engines.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3>E-commerce Solutions</h3>
+          <p>Complete online store setup with payment gateway integration.</p>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Maintenance & Support</h3>
+          <p>24/7 technical support and regular website maintenance services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       HIGHLIGHT SECTION - Using Internal CSS
+  ═══════════════════════════════════════════════ -->
+  <section class="highlight-section">
+    <div class="container">
+      <div class="highlight-box">
+        <h2>Ready to Start Your Project?</h2>
+        <p style="font-size: 18px; margin: 20px 0;">Let's turn your ideas into reality. Contact us today for a free consultation!</p>
+        <a href="#contact" class="btn btn-white">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       TEAM SECTION - Day 4 (Positioning & Flexbox)
+  ═══════════════════════════════════════════════ -->
+  <section id="team" class="team-section">
+    <div class="container">
+      <h2 class="section-title">Meet Our Team</h2>
+      <p class="section-subtitle">Talented professionals dedicated to your success</p>
+      
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo">AS</div>
+          <h3>Ahmed Saleem</h3>
+          <p class="role">Full Stack Developer</p>
+          <p class="bio">Expert in React, Node.js, and MongoDB with 5+ years of experience.</p>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-photo">FH</div>
+          <h3>Fatima Hassan</h3>
+          <p class="role">UI/UX Designer</p>
+          <p class="bio">Creative designer passionate about user-centered design solutions.</p>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-photo">MK</div>
+          <h3>Muhammad Khan</h3>
+          <p class="role">Frontend Developer</p>
+          <p class="bio">Specialist in creating responsive and interactive web interfaces.</p>
+        </div>
+        
+        <div class="team-card">
+          <div class="team-photo">SN</div>
+          <h3>Sara Noor</h3>
+          <p class="role">Project Manager</p>
+          <p class="bio">Ensures timely delivery and client satisfaction on every project.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       CONTACT SECTION - Day 3 (Box Model)
+  ═══════════════════════════════════════════════ -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-subtitle">We'd love to hear from you!</p>
+      
+      <div class="contact-content">
+        <div class="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+92 300 0000000">
+            </div>
+            
+            <div class="form-group">
+              <label for="service">Service Interested In</label>
+              <select id="service" name="service">
+                <option value="">-- Select a service --</option>
+                <option value="web">Web Development</option>
+                <option value="mobile">Mobile Apps</option>
+                <option value="design">UI/UX Design</option>
+                <option value="seo">SEO Optimization</option>
+                <option value="ecommerce">E-commerce</option>
+                <option value="support">Maintenance & Support</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          </form>
+        </div>
+        
+        <div class="contact-info">
+          <div class="info-card">
+            <h3>📍 Our Office</h3>
+            <p>123 Tech Street, Karachi, Pakistan</p>
+          </div>
+          
+          <div class="info-card">
+            <h3>📧 Email Us</h3>
+            <p>info@techhub.com</p>
+            <p>support@techhub.com</p>
+          </div>
+          
+          <div class="info-card">
+            <h3>📱 Call Us</h3>
+            <p>+92 300 1234567</p>
+            <p>+92 321 7654321</p>
+          </div>
+          
+          <div class="info-card">
+            <h3>🕒 Working Hours</h3>
+            <p>Monday - Friday: 9 AM - 6 PM</p>
+            <p>Saturday: 10 AM - 4 PM</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════
+       FOOTER - Day 2 (Colors, Fonts) + Day 4 (Layout)
+  ═══════════════════════════════════════════════ -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>TechHub Solutions</h3>
+          <p>Building digital solutions that matter. Empowering businesses through innovative web technologies.</p>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Services</h3>
+          <ul>
+            <li><a href="#services">Web Development</a></li>
+            <li><a href="#services">Mobile Apps</a></li>
+            <li><a href="#services">UI/UX Design</a></li>
+            <li><a href="#services">SEO Services</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Connect With Us</h3>
+          <div class="social-links">
+            <a href="#" class="social-btn">Facebook</a>
+            <a href="#" class="social-btn">Twitter</a>
+            <a href="#" class="social-btn">LinkedIn</a>
+            <a href="#" class="social-btn">Instagram</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 TechHub Solutions. All rights reserved.</p>
+        <p>Created during <strong>IWY Tech Full Stack Internship - Week 2</strong></p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

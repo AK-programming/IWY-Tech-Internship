@@ -1,0 +1,643 @@
+/* ═══════════════════════════════════════════════════════════════
+   TECHHUB SOLUTIONS - EXTERNAL STYLESHEET
+   Week 2 CSS Project - IWY Tech Full Stack Internship
+   
+   This file demonstrates:
+   - Day 1: CSS Syntax, Selectors, Properties
+   - Day 2: Colors, Fonts, Backgrounds
+   - Day 3: Box Model (Margin, Padding, Border)
+   - Day 4: Layout Techniques (Flexbox, Positioning)
+═══════════════════════════════════════════════════════════════ */
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DAY 1: CSS BASICS - RESET & ROOT VARIABLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Universal Selector - Selects ALL elements */
+* {
+  margin: 0;              /* DAY 3: Box Model - Remove default margin */
+  padding: 0;             /* DAY 3: Box Model - Remove default padding */
+  box-sizing: border-box; /* DAY 3: Box Model - Include padding/border in width */
+}
+
+/* Root variables for consistent colors - DAY 2: Colors */
+:root {
+  --primary-color: #667eea;      /* Main brand color */
+  --secondary-color: #764ba2;    /* Accent color */
+  --dark-color: #1a1a2e;         /* Dark backgrounds */
+  --light-color: #f8f9fa;        /* Light backgrounds */
+  --text-dark: #333333;          /* Dark text */
+  --text-light: #666666;         /* Light text */
+  --white: #ffffff;              /* Pure white */
+  --success-color: #10b981;      /* Success green */
+  --border-color: #e2e8f0;       /* Border color */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DAY 2: TYPOGRAPHY - FONTS & TEXT STYLING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Element Selector - Selects all <body> elements */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* DAY 2: Font family */
+  font-size: 16px;           /* DAY 2: Base font size */
+  line-height: 1.6;          /* DAY 2: Line spacing */
+  color: var(--text-dark);   /* DAY 2: Text color using variable */
+  background-color: var(--light-color); /* DAY 2: Background color */
+}
+
+/* Type Selectors - Select specific HTML elements */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;          /* DAY 2: Bold text */
+  line-height: 1.2;          /* DAY 2: Tight line height for headings */
+  color: var(--dark-color);  /* DAY 2: Dark color for headings */
+  margin-bottom: 1rem;       /* DAY 3: Bottom margin spacing */
+}
+
+h1 { font-size: 2.5rem; }    /* DAY 2: 40px */
+h2 { font-size: 2rem; }      /* DAY 2: 32px */
+h3 { font-size: 1.5rem; }    /* DAY 2: 24px */
+
+p {
+  margin-bottom: 1rem;       /* DAY 3: Paragraph spacing */
+  color: var(--text-light);  /* DAY 2: Slightly lighter text */
+}
+
+a {
+  text-decoration: none;     /* DAY 2: Remove underline */
+  color: var(--primary-color); /* DAY 2: Link color */
+  transition: color 0.3s ease; /* Smooth color change on hover */
+}
+
+a:hover {
+  color: var(--secondary-color); /* DAY 2: Hover state color */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   DAY 3 & 4: REUSABLE COMPONENTS - BOX MODEL & LAYOUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Class Selector - Selects elements with class="container" */
+.container {
+  max-width: 1200px;              /* Maximum width */
+  margin: 0 auto;                 /* DAY 3: Center horizontally (0 top/bottom, auto left/right) */
+  padding: 0 20px;                /* DAY 3: Left and right padding */
+}
+
+/* Section padding - DAY 3: Box Model */
+section {
+  padding: 80px 0;                /* DAY 3: Top/bottom padding, no left/right */
+}
+
+/* Section titles styling */
+.section-title {
+  font-size: 2.5rem;              /* DAY 2: Large font */
+  text-align: center;             /* DAY 2: Center align text */
+  margin-bottom: 10px;            /* DAY 3: Bottom spacing */
+  color: var(--dark-color);       /* DAY 2: Dark color */
+}
+
+.section-subtitle {
+  text-align: center;             /* DAY 2: Center align */
+  color: var(--text-light);       /* DAY 2: Light gray */
+  font-size: 1.1rem;              /* DAY 2: Slightly larger */
+  margin-bottom: 50px;            /* DAY 3: Space below */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HEADER & NAVIGATION - DAY 4: FLEXBOX LAYOUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.main-header {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* DAY 2: Gradient background */
+  color: var(--white);            /* DAY 2: White text */
+  padding: 20px 0;                /* DAY 3: Top/bottom padding */
+  position: sticky;               /* DAY 4: Sticky positioning - stays on scroll */
+  top: 0;                         /* DAY 4: Stick to top */
+  z-index: 1000;                  /* DAY 4: Layer on top */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* DAY 3: Shadow effect */
+}
+
+.header-content {
+  display: flex;                  /* DAY 4: Flexbox layout */
+  justify-content: space-between; /* DAY 4: Space items apart */
+  align-items: center;            /* DAY 4: Vertical center alignment */
+  flex-wrap: wrap;                /* DAY 4: Wrap on small screens */
+}
+
+.logo h1 {
+  color: var(--white);            /* DAY 2: White color */
+  margin-bottom: 0;               /* DAY 3: Remove bottom margin */
+  font-size: 1.8rem;              /* DAY 2: Font size */
+}
+
+.logo .accent {
+  color: #ffd700;                 /* DAY 2: Gold accent color */
+  font-weight: 900;               /* DAY 2: Extra bold */
+}
+
+.tagline {
+  font-size: 0.85rem;             /* DAY 2: Small font */
+  opacity: 0.9;                   /* DAY 2: Slight transparency */
+  margin-top: 5px;                /* DAY 3: Top spacing */
+  color: var(--white);            /* DAY 2: White color */
+}
+
+.main-nav {
+  display: flex;                  /* DAY 4: Flexbox */
+  gap: 30px;                      /* DAY 4: Space between nav items */
+}
+
+.nav-link {
+  color: var(--white);            /* DAY 2: White text */
+  font-weight: 600;               /* DAY 2: Semi-bold */
+  padding: 8px 16px;              /* DAY 3: Internal spacing */
+  border-radius: 5px;             /* DAY 3: Rounded corners */
+  transition: background 0.3s;    /* Smooth transition */
+}
+
+.nav-link:hover {
+  background: rgba(255,255,255,0.2); /* DAY 2: Semi-transparent white on hover */
+}
+
+.nav-link.active {
+  background: rgba(255,255,255,0.3); /* DAY 2: Active state background */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HERO SECTION - DAY 2: COLORS & FONTS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.hero-section {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* DAY 2: Gradient */
+  color: var(--white);            /* DAY 2: White text */
+  padding: 120px 0;               /* DAY 3: Large padding */
+  text-align: center;             /* DAY 2: Center text */
+}
+
+.hero-title {
+  font-size: 3.5rem;              /* DAY 2: Very large font */
+  font-weight: 800;               /* DAY 2: Extra bold */
+  margin-bottom: 20px;            /* DAY 3: Bottom spacing */
+  color: var(--white);            /* DAY 2: White color */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2); /* DAY 2: Text shadow */
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;              /* DAY 2: Medium-large font */
+  margin-bottom: 40px;            /* DAY 3: Bottom spacing */
+  max-width: 700px;               /* Limit width */
+  margin-left: auto;              /* DAY 3: Center horizontally */
+  margin-right: auto;             /* DAY 3: Center horizontally */
+  color: rgba(255,255,255,0.95);  /* DAY 2: Almost white */
+}
+
+.hero-buttons {
+  display: flex;                  /* DAY 4: Flexbox */
+  gap: 20px;                      /* DAY 4: Space between buttons */
+  justify-content: center;        /* DAY 4: Center buttons */
+  flex-wrap: wrap;                /* DAY 4: Wrap on mobile */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BUTTONS - DAY 3: BOX MODEL (padding, border, margin)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.btn {
+  display: inline-block;          /* DAY 4: Display type */
+  padding: 14px 32px;             /* DAY 3: Internal spacing (top/bottom left/right) */
+  border-radius: 8px;             /* DAY 3: Rounded corners */
+  font-weight: 600;               /* DAY 2: Semi-bold */
+  border: 2px solid transparent;  /* DAY 3: Transparent border initially */
+  cursor: pointer;                /* Show pointer on hover */
+  transition: all 0.3s ease;      /* Smooth transitions */
+  font-size: 1rem;                /* DAY 2: Font size */
+}
+
+.btn-primary {
+  background-color: var(--white); /* DAY 2: White background */
+  color: var(--primary-color);    /* DAY 2: Primary color text */
+  border-color: var(--white);     /* DAY 3: White border */
+}
+
+.btn-primary:hover {
+  background-color: transparent;  /* DAY 2: Transparent on hover */
+  color: var(--white);            /* DAY 2: White text */
+  border-color: var(--white);     /* DAY 3: White border */
+}
+
+.btn-secondary {
+  background-color: transparent;  /* DAY 2: Transparent */
+  color: var(--white);            /* DAY 2: White text */
+  border-color: var(--white);     /* DAY 3: White border */
+}
+
+.btn-secondary:hover {
+  background-color: var(--white); /* DAY 2: White background on hover */
+  color: var(--primary-color);    /* DAY 2: Primary color text */
+}
+
+.btn-white {
+  background: var(--white);       /* DAY 2: White background */
+  color: var(--primary-color);    /* DAY 2: Primary text */
+  padding: 16px 40px;             /* DAY 3: Larger padding */
+  font-size: 1.1rem;              /* DAY 2: Larger font */
+}
+
+.btn-block {
+  width: 100%;                    /* DAY 4: Full width */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ABOUT SECTION - DAY 3: BOX MODEL
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.about-section {
+  background: var(--white);       /* DAY 2: White background */
+}
+
+.about-content {
+  display: flex;                  /* DAY 4: Flexbox layout */
+  gap: 60px;                      /* DAY 4: Space between columns */
+  align-items: center;            /* DAY 4: Vertical center */
+  flex-wrap: wrap;                /* DAY 4: Wrap on small screens */
+}
+
+.about-text {
+  flex: 1;                        /* DAY 4: Take available space */
+  min-width: 300px;               /* Minimum width */
+}
+
+.about-text p {
+  font-size: 1.05rem;             /* DAY 2: Slightly larger text */
+  margin-bottom: 20px;            /* DAY 3: Bottom spacing */
+  line-height: 1.8;               /* DAY 2: More line spacing */
+}
+
+.about-stats {
+  flex: 1;                        /* DAY 4: Take available space */
+  display: flex;                  /* DAY 4: Flexbox */
+  flex-direction: column;         /* DAY 4: Stack vertically */
+  gap: 20px;                      /* DAY 4: Space between cards */
+}
+
+.stat-card {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* DAY 2: Gradient */
+  padding: 30px;                  /* DAY 3: Internal padding */
+  border-radius: 12px;            /* DAY 3: Rounded corners */
+  text-align: center;             /* DAY 2: Center text */
+  color: var(--white);            /* DAY 2: White text */
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3); /* DAY 3: Shadow */
+}
+
+.stat-card h3 {
+  font-size: 3rem;                /* DAY 2: Large number */
+  margin-bottom: 5px;             /* DAY 3: Small spacing */
+  color: var(--white);            /* DAY 2: White */
+}
+
+.stat-card p {
+  font-size: 1rem;                /* DAY 2: Normal size */
+  color: rgba(255,255,255,0.9);   /* DAY 2: Almost white */
+  margin: 0;                      /* DAY 3: No margin */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   SERVICES SECTION - DAY 4: FLEXBOX GRID LAYOUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.services-section {
+  background: var(--light-color);  /* DAY 2: Light background */
+}
+
+.services-grid {
+  display: flex;                   /* DAY 4: Flexbox */
+  flex-wrap: wrap;                 /* DAY 4: Wrap to new rows */
+  gap: 30px;                       /* DAY 4: Space between cards */
+  justify-content: center;         /* DAY 4: Center items */
+}
+
+.service-card {
+  flex: 1 1 calc(33.333% - 30px);  /* DAY 4: 3 columns, accounting for gap */
+  min-width: 280px;                /* Minimum width */
+  background: var(--white);        /* DAY 2: White background */
+  padding: 40px 30px;              /* DAY 3: Padding (top/bottom left/right) */
+  border-radius: 12px;             /* DAY 3: Rounded corners */
+  border: 2px solid var(--border-color); /* DAY 3: Border */
+  text-align: center;              /* DAY 2: Center text */
+  transition: all 0.3s ease;       /* Smooth transition */
+}
+
+.service-card:hover {
+  border-color: var(--primary-color); /* DAY 3: Border color change */
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15); /* DAY 3: Shadow on hover */
+  transform: translateY(-5px);     /* DAY 4: Move up slightly */
+}
+
+.service-icon {
+  font-size: 3rem;                 /* DAY 2: Large emoji/icon */
+  margin-bottom: 20px;             /* DAY 3: Bottom spacing */
+}
+
+.service-card h3 {
+  font-size: 1.4rem;               /* DAY 2: Medium-large */
+  margin-bottom: 15px;             /* DAY 3: Bottom spacing */
+  color: var(--dark-color);        /* DAY 2: Dark color */
+}
+
+.service-card p {
+  font-size: 0.95rem;              /* DAY 2: Slightly smaller */
+  color: var(--text-light);        /* DAY 2: Light gray */
+  line-height: 1.7;                /* DAY 2: Line spacing */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HIGHLIGHT SECTION - Background & Spacing
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.highlight-section {
+  background: var(--white);        /* DAY 2: White background */
+  padding: 0;                      /* DAY 3: No section padding (handled by inner box) */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TEAM SECTION - DAY 4: FLEXBOX GRID
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.team-section {
+  background: var(--light-color);  /* DAY 2: Light background */
+}
+
+.team-grid {
+  display: flex;                   /* DAY 4: Flexbox */
+  flex-wrap: wrap;                 /* DAY 4: Wrap items */
+  gap: 30px;                       /* DAY 4: Space between cards */
+  justify-content: center;         /* DAY 4: Center items */
+}
+
+.team-card {
+  flex: 1 1 calc(25% - 30px);      /* DAY 4: 4 columns */
+  min-width: 250px;                /* Minimum width */
+  background: var(--white);        /* DAY 2: White */
+  padding: 30px 20px;              /* DAY 3: Padding */
+  border-radius: 12px;             /* DAY 3: Rounded */
+  text-align: center;              /* DAY 2: Center */
+  border: 2px solid var(--border-color); /* DAY 3: Border */
+  transition: all 0.3s;            /* Smooth effect */
+}
+
+.team-card:hover {
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1); /* DAY 3: Shadow */
+  transform: translateY(-5px);     /* DAY 4: Move up */
+}
+
+.team-photo {
+  width: 100px;                    /* Fixed width */
+  height: 100px;                   /* Fixed height */
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); /* DAY 2: Gradient */
+  color: var(--white);             /* DAY 2: White text */
+  border-radius: 50%;              /* DAY 3: Perfect circle */
+  display: flex;                   /* DAY 4: Flexbox */
+  align-items: center;             /* DAY 4: Vertical center */
+  justify-content: center;         /* DAY 4: Horizontal center */
+  font-size: 2rem;                 /* DAY 2: Large text */
+  font-weight: 700;                /* DAY 2: Bold */
+  margin: 0 auto 20px;             /* DAY 3: Center with bottom spacing */
+}
+
+.team-card h3 {
+  font-size: 1.3rem;               /* DAY 2: Font size */
+  margin-bottom: 8px;              /* DAY 3: Spacing */
+  color: var(--dark-color);        /* DAY 2: Dark */
+}
+
+.role {
+  color: var(--primary-color);     /* DAY 2: Primary color */
+  font-weight: 600;                /* DAY 2: Semi-bold */
+  font-size: 0.95rem;              /* DAY 2: Slightly smaller */
+  margin-bottom: 12px;             /* DAY 3: Spacing */
+}
+
+.bio {
+  font-size: 0.9rem;               /* DAY 2: Small text */
+  color: var(--text-light);        /* DAY 2: Light gray */
+  line-height: 1.6;                /* DAY 2: Line spacing */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CONTACT SECTION - DAY 3: BOX MODEL + DAY 4: LAYOUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.contact-section {
+  background: var(--white);        /* DAY 2: White */
+}
+
+.contact-content {
+  display: flex;                   /* DAY 4: Flexbox */
+  gap: 50px;                       /* DAY 4: Space between form and info */
+  flex-wrap: wrap;                 /* DAY 4: Wrap on small screens */
+}
+
+.contact-form {
+  flex: 1.5;                       /* DAY 4: Take more space */
+  min-width: 300px;                /* Minimum width */
+}
+
+.contact-info {
+  flex: 1;                         /* DAY 4: Take less space */
+  min-width: 280px;                /* Minimum width */
+}
+
+/* Form styling - DAY 3: Box Model */
+.form-group {
+  margin-bottom: 25px;             /* DAY 3: Bottom spacing */
+}
+
+.form-group label {
+  display: block;                  /* DAY 4: Block element */
+  margin-bottom: 8px;              /* DAY 3: Bottom spacing */
+  font-weight: 600;                /* DAY 2: Semi-bold */
+  color: var(--dark-color);        /* DAY 2: Dark color */
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;                     /* Full width */
+  padding: 12px 16px;              /* DAY 3: Internal padding */
+  border: 2px solid var(--border-color); /* DAY 3: Border */
+  border-radius: 8px;              /* DAY 3: Rounded corners */
+  font-size: 1rem;                 /* DAY 2: Font size */
+  font-family: inherit;            /* DAY 2: Inherit font */
+  color: var(--text-dark);         /* DAY 2: Text color */
+  background: var(--white);        /* DAY 2: White background */
+  transition: border-color 0.3s;   /* Smooth transition */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;                   /* Remove default outline */
+  border-color: var(--primary-color); /* DAY 3: Primary color border on focus */
+}
+
+.form-group textarea {
+  resize: vertical;                /* Allow vertical resize only */
+  min-height: 120px;               /* Minimum height */
+}
+
+/* Contact info cards */
+.info-card {
+  background: var(--light-color);  /* DAY 2: Light background */
+  padding: 25px;                   /* DAY 3: Padding */
+  border-radius: 10px;             /* DAY 3: Rounded corners */
+  margin-bottom: 20px;             /* DAY 3: Bottom spacing */
+  border-left: 4px solid var(--primary-color); /* DAY 3: Left accent border */
+}
+
+.info-card h3 {
+  font-size: 1.2rem;               /* DAY 2: Font size */
+  margin-bottom: 10px;             /* DAY 3: Spacing */
+  color: var(--dark-color);        /* DAY 2: Dark */
+}
+
+.info-card p {
+  font-size: 0.95rem;              /* DAY 2: Slightly smaller */
+  margin-bottom: 5px;              /* DAY 3: Small spacing */
+  color: var(--text-light);        /* DAY 2: Light gray */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   FOOTER - DAY 2: COLORS + DAY 4: FLEXBOX LAYOUT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+.main-footer {
+  background: var(--dark-color);   /* DAY 2: Dark background */
+  color: var(--white);             /* DAY 2: White text */
+  padding: 60px 0 20px;            /* DAY 3: Padding */
+}
+
+.footer-content {
+  display: flex;                   /* DAY 4: Flexbox */
+  justify-content: space-between;  /* DAY 4: Space between sections */
+  flex-wrap: wrap;                 /* DAY 4: Wrap on small screens */
+  gap: 40px;                       /* DAY 4: Space between sections */
+  margin-bottom: 40px;             /* DAY 3: Bottom spacing */
+}
+
+.footer-section {
+  flex: 1;                         /* DAY 4: Equal width */
+  min-width: 200px;                /* Minimum width */
+}
+
+.footer-section h3 {
+  font-size: 1.3rem;               /* DAY 2: Font size */
+  margin-bottom: 20px;             /* DAY 3: Spacing */
+  color: var(--white);             /* DAY 2: White */
+}
+
+.footer-section p {
+  font-size: 0.95rem;              /* DAY 2: Smaller text */
+  line-height: 1.8;                /* DAY 2: Line spacing */
+  color: rgba(255,255,255,0.8);    /* DAY 2: Semi-transparent white */
+}
+
+.footer-section ul {
+  list-style: none;                /* Remove bullets */
+  padding: 0;                      /* DAY 3: No padding */
+}
+
+.footer-section li {
+  margin-bottom: 12px;             /* DAY 3: Spacing between links */
+}
+
+.footer-section a {
+  color: rgba(255,255,255,0.8);    /* DAY 2: Semi-transparent white */
+  font-size: 0.95rem;              /* DAY 2: Font size */
+}
+
+.footer-section a:hover {
+  color: var(--white);             /* DAY 2: Full white on hover */
+  padding-left: 5px;               /* DAY 3: Slide effect */
+}
+
+.social-links {
+  display: flex;                   /* DAY 4: Flexbox */
+  flex-direction: column;          /* DAY 4: Stack vertically */
+  gap: 10px;                       /* DAY 4: Space between buttons */
+}
+
+.social-btn {
+  background: rgba(255,255,255,0.1); /* DAY 2: Semi-transparent */
+  padding: 10px 20px;              /* DAY 3: Padding */
+  border-radius: 6px;              /* DAY 3: Rounded */
+  text-align: center;              /* DAY 2: Center text */
+  transition: background 0.3s;     /* Smooth transition */
+}
+
+.social-btn:hover {
+  background: var(--primary-color); /* DAY 2: Primary color on hover */
+  color: var(--white);             /* DAY 2: White text */
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1); /* DAY 3: Top border */
+  padding-top: 30px;               /* DAY 3: Top padding */
+  text-align: center;              /* DAY 2: Center text */
+}
+
+.footer-bottom p {
+  font-size: 0.9rem;               /* DAY 2: Small text */
+  color: rgba(255,255,255,0.7);    /* DAY 2: Light text */
+  margin-bottom: 10px;             /* DAY 3: Bottom spacing */
+}
+
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   RESPONSIVE DESIGN - DAY 4: MEDIA QUERIES
+   (Mobile-first responsive design)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* Tablet and smaller */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;             /* Smaller on mobile */
+  }
+  
+  .main-nav {
+    gap: 15px;                     /* Less gap on mobile */
+    justify-content: center;       /* Center nav */
+  }
+  
+  .services-grid,
+  .team-grid {
+    gap: 20px;                     /* Less gap */
+  }
+  
+  .service-card,
+  .team-card {
+    flex: 1 1 100%;                /* Full width on mobile */
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;               /* Smaller titles */
+  }
+  
+  .btn {
+    padding: 12px 24px;            /* Smaller buttons */
+  }
+}

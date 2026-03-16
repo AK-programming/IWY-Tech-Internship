@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Muhammad Afnan Khan | Interactive Portfolio - Week 3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="main-header">
+    <div class="container">
+      <h1>Muhammad Afnan Khan</h1>
+      <p>AI/ML Researcher • Embedded Systems Developer • UET Peshawar</p>
+      <button id="darkModeToggle" class="dark-mode-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+    </div>
+  </header>
+
+  <section id="home" class="hero-section">
+    <div class="container">
+      <h2 id="greeting">Welcome!</h2>
+      <p>Current Time: <span id="currentTime"></span></p>
+      <p>Page Views: <span id="viewCount">0</span></p>
+      <button onclick="incrementCounter()" class="btn">Click to Count! 👆</button>
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="container">
+      <h2>About Me</h2>
+      
+      <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('education')">🎓 Education</button>
+        <button class="tab-btn" onclick="showTab('experience')">💼 Experience</button>
+        <button class="tab-btn" onclick="showTab('achievements')">🏆 Achievements</button>
+      </div>
+      
+      <div id="education" class="tab-content active">
+        <h3>UET Peshawar</h3>
+        <p>Bachelor's - Computer Systems Engineering (2022-2026)</p>
+      </div>
+      
+      <div id="experience" class="tab-content">
+        <h3>SID Lab - Undergraduate Researcher</h3>
+        <p>AI/ML research on NLP, transformers, healthcare chatbot</p>
+        <h3>GDG Peshawar - App Development Lead</h3>
+        <p>Mentoring students in web/mobile development</p>
+        <h3>DPL - Embedded Systems Intern</h3>
+        <p>STM32, ESP32, IoT, MQTT protocols</p>
+      </div>
+      
+      <div id="achievements" class="tab-content">
+        <ul>
+          <li>Runner-Up - Imagine Cup 2025</li>
+          <li>National Finalist - AI Wrapper 2025</li>
+          <li>Hult Prize 2026 Competitor</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2>Skills</h2>
+      <div id="skillsContainer"></div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects-section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="filter-buttons">
+        <button onclick="filterProjects('all')" class="filter-btn active">All</button>
+        <button onclick="filterProjects('ai')" class="filter-btn">AI/ML</button>
+        <button onclick="filterProjects('iot')" class="filter-btn">IoT</button>
+        <button onclick="filterProjects('web')" class="filter-btn">Web</button>
+      </div>
+      
+      <div id="projectsGrid">
+        <div class="project-card" data-category="ai">
+          <h3>🤖 Roman Urdu Healthcare Chatbot</h3>
+          <p>AI-powered NLP chatbot • BERT, RoBERTa</p>
+        </div>
+        <div class="project-card" data-category="iot">
+          <h3>🏠 Smart AIoT Assistant</h3>
+          <p>Imagine Cup Runner-Up • ESP32, Gen AI</p>
+        </div>
+        <div class="project-card" data-category="iot">
+          <h3>⚡ STM32 Monitoring System</h3>
+          <p>Real-time IoT • I2C, UART, SPI</p>
+        </div>
+        <div class="project-card" data-category="web">
+          <h3>💻 Full Stack Apps</h3>
+          <p>Node.js, React, JavaScript</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculator" class="calculator-section">
+    <div class="container">
+      <h2>Interactive Calculator</h2>
+      <div class="calculator">
+        <div class="calc-display">
+          <div id="previousOperand"></div>
+          <div id="currentOperand">0</div>
+        </div>
+        <div class="calc-buttons">
+          <button onclick="calculator.clear()" class="calc-btn span-2">AC</button>
+          <button onclick="calculator.delete()" class="calc-btn">DEL</button>
+          <button onclick="calculator.chooseOperation('÷')" class="calc-btn operator">÷</button>
+          
+          <button onclick="calculator.appendNumber('7')" class="calc-btn">7</button>
+          <button onclick="calculator.appendNumber('8')" class="calc-btn">8</button>
+          <button onclick="calculator.appendNumber('9')" class="calc-btn">9</button>
+          <button onclick="calculator.chooseOperation('×')" class="calc-btn operator">×</button>
+          
+          <button onclick="calculator.appendNumber('4')" class="calc-btn">4</button>
+          <button onclick="calculator.appendNumber('5')" class="calc-btn">5</button>
+          <button onclick="calculator.appendNumber('6')" class="calc-btn">6</button>
+          <button onclick="calculator.chooseOperation('-')" class="calc-btn operator">-</button>
+          
+          <button onclick="calculator.appendNumber('1')" class="calc-btn">1</button>
+          <button onclick="calculator.appendNumber('2')" class="calc-btn">2</button>
+          <button onclick="calculator.appendNumber('3')" class="calc-btn">3</button>
+          <button onclick="calculator.chooseOperation('+')" class="calc-btn operator">+</button>
+          
+          <button onclick="calculator.appendNumber('0')" class="calc-btn span-2">0</button>
+          <button onclick="calculator.appendNumber('.')" class="calc-btn">.</button>
+          <button onclick="calculator.compute()" class="calc-btn operator">=</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2>Contact Form (with Validation)</h2>
+      <form id="contactForm" onsubmit="return validateForm(event)">
+        <div class="form-group">
+          <label>Name *</label>
+          <input type="text" id="name" placeholder="Your name">
+          <span class="error-message" id="nameError"></span>
+        </div>
+        
+        <div class="form-group">
+          <label>Email *</label>
+          <input type="email" id="email" placeholder="your@email.com">
+          <span class="error-message" id="emailError"></span>
+        </div>
+        
+        <div class="form-group">
+          <label>Message *</label>
+          <textarea id="message" rows="4"></textarea>
+          <span class="error-message" id="messageError"></span>
+        </div>
+        
+        <button type="submit" class="btn">Send Message 🚀</button>
+      </form>
+      
+      <div id="successMessage" style="display:none;">
+        <h3>✅ Message Sent!</h3>
+      </div>
+      
+      <div class="contact-info">
+        <p>📧 muhammadafnankhan40404@gmail.com</p>
+        <p>📱 +92 347 5917884</p>
+        <p>💼 <a href="https://linkedin.com/in/ak2155">LinkedIn</a></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Muhammad Afnan Khan | IWY Tech Week 3 Project</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
